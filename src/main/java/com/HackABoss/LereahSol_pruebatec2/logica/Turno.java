@@ -10,15 +10,17 @@ public class Turno {
     private List<Tramite> Tramite;
     private Date fecha;
     private List<Ciudadano> Ciudadano;
+    private String estado;
 
     public Turno() {
     }
 
-    public Turno(Long id, List<Tramite> Tramite, Date fecha, List<Ciudadano> Ciudadano) {
+    public Turno(Long id, List<Tramite> Tramite, Date fecha, List<Ciudadano> Ciudadano, String estado) {
         this.id = id;
         this.Tramite = Tramite;
         this.fecha = fecha;
         this.Ciudadano = Ciudadano;
+        this.estado = estado;
     }
 
     public Long getId() {
@@ -53,10 +55,15 @@ public class Turno {
         this.Ciudadano = Ciudadano;
     }
 
+    public String getEstado() {
+        return estado;
+    }
 
-   
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
 
-   
+
     
     
     
