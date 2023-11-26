@@ -8,25 +8,25 @@
     <form class="row g-3">
         <div class="col-md-6">
             <label for="inputNombre" class="form-label">Nombre</label>
-            <input type="text" class="form-control" id="inputNombre" placeholder="Nombre" required>
+            <input type="text" class="form-control" id="inputNombre" name="inputNombre" placeholder="Nombre"  required>
         </div>
         <div class="col-md-6">
             <label for="inputApellido" class="form-label">Apellido</label>
-            <input type="text" class="form-control" id="inputApellido" placeholder="Apellido" required>
+            <input type="text" class="form-control" id="inputApellido" name="inputApellido" placeholder="Apellido" required>
         </div>
 
         <div class="col-md-6">
             <label for="inputDNI" class="form-label">DNI</label>
-            <input type="text" class="form-control" id="inputDNI" placeholder="DNI" required>
+            <input type="text" class="form-control" id="inputDNI"  name="inputDNI" placeholder="DNI" required>
         </div>
         <div class="col-md-6">
             <label for="inputTel" class="form-label">Teléfono</label>
-            <input type="tel" class="form-control" id="inputTel" placeholder="Teléfono" required>
+            <input type="tel" class="form-control" id="inputTel"  name="inputTel" placeholder="Teléfono" required>
         </div>
 
         <div class="col-md-6">
             <label for="inputDate" class="form-label">Fecha Turno</label>
-            <input type="date" class="form-control" id="inputDate" required>
+            <input type="date" class="form-control" id="inputDate" name="inputDate"required>
         </div>
         <div class="col-md-6">
             <label for="inputTramite" class="form-label">Trámites</label>

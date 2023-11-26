@@ -33,7 +33,7 @@
                     <td>12345678</td>
                     <td>
                         <select class="form-select" aria-label="Default select example">
-                            <option selected value="espera">En espera</option>
+                            <option selected value="espera">En Espera</option>
                             <option value="atendido">Atendido</option>
                         </select>
                     </td>

@@ -1,34 +1,46 @@
 
 package com.HackABoss.LereahSol_pruebatec2.logica;
 
+import java.io.Serializable;
+import java.util.List;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
-public class Ciudadano {
+@Entity
+public class Ciudadano implements Serializable {
+    @Id
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    private Long idCiudadano;
     
-    private Long id;
     private String nombre;
     private String Apellido;
     private String dni;
     private String telefono;
-    private Turno turno;
+    
+    @OneToMany (mappedBy="unCiudadano")
+    private List<Turno> turnos;
 
     public Ciudadano() {
     }
 
-    public Ciudadano(Long id, String nombre, String Apellido, String dni, String telefono, Turno turno) {
-        this.id = id;
+    public Ciudadano(Long idCiudadano, String nombre, String Apellido, String dni, String telefono, List<Turno> turnos) {
+        this.idCiudadano = idCiudadano;
         this.nombre = nombre;
         this.Apellido = Apellido;
         this.dni = dni;
         this.telefono = telefono;
-        this.turno = turno;
+        this.turnos = turnos;
     }
 
-    public Long getId() {
-        return id;
+    public Long getIdCiudadano() {
+        return idCiudadano;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setIdCiudadano(Long idCiudadano) {
+        this.idCiudadano = idCiudadano;
     }
 
     public String getNombre() {
@@ -63,14 +75,14 @@ public class Ciudadano {
         this.telefono = telefono;
     }
 
-    public Turno getTurno() {
-        return turno;
+    public List<Turno> getTurnos() {
+        return turnos;
     }
 
-    public void setTurno(Turno turno) {
-        this.turno = turno;
+    public void setTurnos(List<Turno> turnos) {
+        this.turnos = turnos;
     }
+
     
-    
-    
+   
 }
