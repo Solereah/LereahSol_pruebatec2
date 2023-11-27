@@ -8,7 +8,7 @@
 
             <div class="container-fluid">
 
-                <a class="navbar-brand" href="#">
+                <a class="navbar-brand" href="index.jsp">
                    <i class="fa-regular fa-calendar-days"></i>
                     CitaÁgil
                 </a>
@@ -25,15 +25,11 @@
                                 Turno
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="turno.jsp">Pedir Turno</a></li>
-                                <li><a class="dropdown-item" href="tablaDatos.jsp">Mostrar Turnos</a></li>                        
+                                <li><a class="dropdown-item" href="altaCiudadano.jsp">Pedir Turno</a></li>
+                                <li><a class="dropdown-item" href="mostrarDatos.jsp">Mostrar Turnos</a></li>                        
                             </ul>
                         </li>
                     </ul>
-                    <form class="d-flex">
-                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                        <button class="btn btn-outline-success" type="submit">Buscar</button>
-                    </form>
                 </div>
             </div>
         </nav>

@@ -20,7 +20,7 @@ public class TurnoJpaController implements Serializable {
     public TurnoJpaController(EntityManagerFactory emf) {
         this.emf = emf;
     }
-       public TurnoJpaController() {
+     public TurnoJpaController() {
         emf = Persistence.createEntityManagerFactory("GestionTurnosPU");
     }
     private EntityManagerFactory emf = null;

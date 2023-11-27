@@ -12,6 +12,8 @@ public class ControladoraPersistencia {
     CiudadanoJpaController ciudaJPA = new CiudadanoJpaController();
     TurnoJpaController turnJPA = new TurnoJpaController();
 
+
+    
     //Ciudadano
     //Crear
     public void crearCiudadano(Ciudadano ciuda) {
@@ -19,12 +21,12 @@ public class ControladoraPersistencia {
     }
 
     //Mostrar 1
-    public Ciudadano MostrarCiudadano(Long id) {
+    public Ciudadano mostrarCiudadano(Long id) {
         return ciudaJPA.findCiudadano(id);
     }
 
     // Mostrar todos
-    public List<Ciudadano> MostrarCiudadanos() {
+    public List<Ciudadano> mostrarCiudadanos() {
         return ciudaJPA.findCiudadanoEntities();
     }
 

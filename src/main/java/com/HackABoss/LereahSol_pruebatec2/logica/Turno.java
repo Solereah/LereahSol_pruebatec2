@@ -1,9 +1,7 @@
 package com.HackABoss.LereahSol_pruebatec2.logica;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -22,34 +20,21 @@ public class Turno implements Serializable {
 
     @Temporal(TemporalType.DATE)
     private Date fecha;
-    private List<String> tramites;
+    private String tramite;
     private String estado;
 
     @ManyToOne
-    @JoinColumn(name = "idTurno")
+    @JoinColumn(name = "idCiuda")
     private Ciudadano unCiudadano;
 
     public Turno() {
     }
 
-    public Turno(Long idTurno, Date fecha, List<String> tramites, String estado, Ciudadano unCiudadano) {
+    public Turno(Long idTurno, Date fecha, String tramite, String estado, Ciudadano unCiudadano) {
         this.idTurno = idTurno;
         this.fecha = fecha;
-        this.tramites = new ArrayList<>();
-        // Trámites por defecto
-        this.tramites.add("Consumo");
-        this.tramites.add("Contribuyente");
-        this.tramites.add("Cultura");
-        this.tramites.add("Empleo");
-        this.tramites.add("Empadronamiento");
-        this.tramites.add("Movilidad");
-        this.tramites.add("Identificación Electrónica");
-        this.tramites.add("Padrón y Censo");
-        this.tramites.add("Protección Animal");
-        this.tramites.add("Salud");
-        this.tramites.add("Servicios Sociales");
-        this.tramites.add("Urbanismo y Vivienda");
-        this.estado = "En Espera";
+        this.tramite = tramite;
+        this.estado = estado;
         this.unCiudadano = unCiudadano;
     }
 
@@ -69,12 +54,12 @@ public class Turno implements Serializable {
         this.fecha = fecha;
     }
 
-    public List<String> getTramites() {
-        return tramites;
+    public String getTramite() {
+        return tramite;
     }
 
-    public void setTramites(List<String> tramites) {
-        this.tramites = tramites;
+    public void setTramite(String tramite) {
+        this.tramite = tramite;
     }
 
     public String getEstado() {
@@ -92,6 +77,10 @@ public class Turno implements Serializable {
     public void setUnCiudadano(Ciudadano unCiudadano) {
         this.unCiudadano = unCiudadano;
     }
+
+  
+
+   
 
     
 }

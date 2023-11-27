@@ -10,7 +10,7 @@
             <div class="hero-section">
                 <h1 class="display-4">CitaÁgil</h1>
                 <p class="lead">Nuestro compromiso es proporcionar un servicio eficiente y accesible para facilitar los trámites que usted necesita.</p>
-                <a class="btn btn-primary btn-lg" href="turno.jsp" role="button">Sacar Turno</a>
+                <a class="btn btn-primary btn-lg" href="altaCiudadano.jsp" role="button">Sacar Turno</a>
             </div>
         </div>
 
@@ -20,7 +20,4 @@
         </div>
     </div>
 </div>
-
-
-
 </main>
