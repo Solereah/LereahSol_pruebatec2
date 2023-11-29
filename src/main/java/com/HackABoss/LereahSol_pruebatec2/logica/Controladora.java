@@ -85,7 +85,7 @@ public class Controladora {
 
         List<Turno> turnosFiltrados = filtrarPorFecha(fecha);
         turnosFiltrados.stream()
-                .filter(t -> t.getEstado().equals(estado))
+                .filter(t -> t.getEstado().equalsIgnoreCase(estado))
                 .collect(Collectors.toList());
         return turnosFiltrados;
     }

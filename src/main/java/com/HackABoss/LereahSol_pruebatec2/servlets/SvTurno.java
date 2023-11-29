@@ -31,17 +31,20 @@ public class SvTurno extends HttpServlet {
         List<Turno> listaTurnos = new ArrayList<>();
         listaTurnos = control.traerTurnos();
         
+        //Filtro fechas y estado
         if (listaTurnos != null) {
 
             String fechaInput = request.getParameter("inputDate");
-            //String estado = request.getParameter("estado");
+            String estado = request.getParameter("estado");
 
             Date fecha = control.formatearFecha(fechaInput);
 
-            //System.out.println("estado es: " + estado);
-            if (fecha != null) {
+            if (fechaInput != null && !fechaInput.isEmpty() && estado != null && !estado.isEmpty()) {
+               
+               listaTurnos =control.filtrarPorFechaEstado(fecha, estado);
+            }else{
                 listaTurnos = control.filtrarPorFecha(fecha);
-                System.out.println("Entre en filtro por fecha");
+              
             }
         }
 

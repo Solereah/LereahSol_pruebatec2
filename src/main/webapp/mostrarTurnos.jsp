@@ -56,7 +56,7 @@
             </thead>
 
             <%List<Turno> listaTurnos = (List) request.getSession().getAttribute("listaTurnos");%>
-            <% if(listaTurnos != null && !listaTurnos.isEmpty())  { %>
+            <% if (listaTurnos != null && !listaTurnos.isEmpty()) { %>
             <tbody>
                 <%for (Turno turno : listaTurnos) {%>
                 <tr>
@@ -66,12 +66,18 @@
                     <td><%=turno.getUnCiudadano().getApellido()%></td>
                     <td><%=turno.getUnCiudadano().getDni()%></td>
                     <td><%=turno.getTramite()%></td>
-                    <td> 
+                  
                         <!-- Button trigger modal -->
-                        <button class="btn btn-warning btn-sm" type="button"  data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                            <%=turno.getEstado()%> <i class="fa-solid fa-pencil"></i>
-                        </button>
+                    <td>
+                        <form action="SvEditTurno" method="GET" class="d-inline">
+                            <input type="hidden" name="idTurno" value="<%=turno.getIdTurno()%>">
+                            <button class="btn btn-warning btn-sm" type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop" >
+                                <%=turno.getEstado()%> <i class="fa-solid fa-pencil"></i>
+                            </button>
+                        </form>
                     </td>
+
+                
                     <td>
                         <form action="SvElimTurno" method="POST" id="eliminarTurnoForm">
                             <input type="hidden" name="idTurn" id="idTurn" value="<%=turno.getIdTurno()%>">
@@ -84,9 +90,13 @@
                 <%}%>
             </tbody>
             <%}%>
-     </table>
+        </table>
     </div>
-<!------------Modal------------>
+    <!------------Modal------------>
+
+    <%
+
+    %>
     <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">

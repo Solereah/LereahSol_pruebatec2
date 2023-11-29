@@ -24,22 +24,23 @@ public class SvEditTurno extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
+    int idTurnoEdit = Integer.parseInt(request.getParameter("idTurno"));
+        System.out.println(idTurnoEdit);
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        int idTurnoEdit = Integer.parseInt(request.getParameter("idTurnEdit"));
+    
 
-        Turno turnoEdit = control.traerTurno(idTurnoEdit);
+       // Turno turnoEdit = control.traerTurno(idTurnoEdit);
 
-        String nuevoEstado = request.getParameter("estado");
-        System.out.println(nuevoEstado);
+      //  String nuevoEstado = request.getParameter("estado");
+       // System.out.println(nuevoEstado);
         
-        turnoEdit.setEstado(nuevoEstado);
-        control.editarTurno(turnoEdit);
+       // turnoEdit.setEstado(nuevoEstado);
+       // control.editarTurno(turnoEdit);
         
        
         response.sendRedirect("mostrarTurnos.jsp");
