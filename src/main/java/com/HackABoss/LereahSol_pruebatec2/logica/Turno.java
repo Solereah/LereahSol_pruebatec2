@@ -15,8 +15,8 @@ import javax.persistence.TemporalType;
 public class Turno implements Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idTurno;
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    private int idTurno;
 
     @Temporal(TemporalType.DATE)
     private Date fecha;
@@ -30,7 +30,7 @@ public class Turno implements Serializable {
     public Turno() {
     }
 
-    public Turno(Long idTurno, Date fecha, String tramite, String estado, Ciudadano unCiudadano) {
+    public Turno(int idTurno, Date fecha, String tramite, String estado, Ciudadano unCiudadano) {
         this.idTurno = idTurno;
         this.fecha = fecha;
         this.tramite = tramite;
@@ -38,11 +38,11 @@ public class Turno implements Serializable {
         this.unCiudadano = unCiudadano;
     }
 
-    public Long getIdTurno() {
+    public int getIdTurno() {
         return idTurno;
     }
 
-    public void setIdTurno(Long idTurno) {
+    public void setIdTurno(int idTurno) {
         this.idTurno = idTurno;
     }
 
@@ -78,6 +78,7 @@ public class Turno implements Serializable {
         this.unCiudadano = unCiudadano;
     }
 
+    
   
 
    

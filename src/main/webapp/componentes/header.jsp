@@ -26,7 +26,7 @@
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <li><a class="dropdown-item" href="altaCiudadano.jsp">Pedir Turno</a></li>
-                                <li><a class="dropdown-item" href="mostrarDatos.jsp">Mostrar Turnos</a></li>                        
+                                <li><a class="dropdown-item" href="mostrarTurnos.jsp">Mostrar Turnos</a></li>                        
                             </ul>
                         </li>
                     </ul>

@@ -14,37 +14,37 @@ public class ControladoraPersistencia {
 
 
     
-    //Ciudadano
-    //Crear
+    //-------------------CIUDADANOS------------------
+  
     public void crearCiudadano(Ciudadano ciuda) {
         ciudaJPA.create(ciuda);
     }
 
-    //Mostrar 1
-    public Ciudadano mostrarCiudadano(Long id) {
+
+    public Ciudadano traerCiudadano(int id) {
         return ciudaJPA.findCiudadano(id);
     }
 
-    // Mostrar todos
-    public List<Ciudadano> mostrarCiudadanos() {
+ 
+    public List<Ciudadano> traerCiudadanos() {
         return ciudaJPA.findCiudadanoEntities();
     }
 
-    //Turno 
-    //Crear
+    //-------------------TURNOS-------------------
+   
     public void crearTurno(Turno nuevoTurno) {
         turnJPA.create(nuevoTurno);
     }
-    //Mostrar 1 turno
-    public Turno mostrarTurno(Long id) {
+ 
+    public Turno traerTurno(int id) {
         return turnJPA.findTurno(id);
     }
-    //Mostrar varios
-    public List<Turno> mostrarTurnos() {
+  
+    public List<Turno> traerTurnos() {
         return turnJPA.findTurnoEntities();
 
     }
-    //Editar
+
     public void editarTurno(Turno turno) {
         try {
             turnJPA.edit(turno);
@@ -52,8 +52,8 @@ public class ControladoraPersistencia {
             Logger.getLogger(ControladoraPersistencia.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    //Eliminar
-    public void cancelarTurno(Long id){
+  
+    public void eliminarTurno(int id){
         try {
             turnJPA.destroy(id);
         } catch (NonexistentEntityException ex) {

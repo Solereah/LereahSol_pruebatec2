@@ -20,7 +20,7 @@ public class TurnoJpaController implements Serializable {
     public TurnoJpaController(EntityManagerFactory emf) {
         this.emf = emf;
     }
-     public TurnoJpaController() {
+       public TurnoJpaController() {
         emf = Persistence.createEntityManagerFactory("GestionTurnosPU");
     }
     private EntityManagerFactory emf = null;
@@ -77,7 +77,7 @@ public class TurnoJpaController implements Serializable {
         } catch (Exception ex) {
             String msg = ex.getLocalizedMessage();
             if (msg == null || msg.length() == 0) {
-                Long id = turno.getIdTurno();
+                int id = turno.getIdTurno();
                 if (findTurno(id) == null) {
                     throw new NonexistentEntityException("The turno with id " + id + " no longer exists.");
                 }
@@ -90,7 +90,7 @@ public class TurnoJpaController implements Serializable {
         }
     }
 
-    public void destroy(Long id) throws NonexistentEntityException {
+    public void destroy(int id) throws NonexistentEntityException {
         EntityManager em = null;
         try {
             em = getEntityManager();
@@ -140,7 +140,7 @@ public class TurnoJpaController implements Serializable {
         }
     }
 
-    public Turno findTurno(Long id) {
+    public Turno findTurno(int id) {
         EntityManager em = getEntityManager();
         try {
             return em.find(Turno.class, id);

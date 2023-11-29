@@ -99,7 +99,7 @@ public class CiudadanoJpaController implements Serializable {
         } catch (Exception ex) {
             String msg = ex.getLocalizedMessage();
             if (msg == null || msg.length() == 0) {
-                Long id = ciudadano.getIdCiudadano();
+                int id = ciudadano.getIdCiudadano();
                 if (findCiudadano(id) == null) {
                     throw new NonexistentEntityException("The ciudadano with id " + id + " no longer exists.");
                 }
@@ -112,7 +112,7 @@ public class CiudadanoJpaController implements Serializable {
         }
     }
 
-    public void destroy(Long id) throws NonexistentEntityException {
+    public void destroy(int id) throws NonexistentEntityException {
         EntityManager em = null;
         try {
             em = getEntityManager();
@@ -162,7 +162,7 @@ public class CiudadanoJpaController implements Serializable {
         }
     }
 
-    public Ciudadano findCiudadano(Long id) {
+    public Ciudadano findCiudadano(int id) {
         EntityManager em = getEntityManager();
         try {
             return em.find(Ciudadano.class, id);

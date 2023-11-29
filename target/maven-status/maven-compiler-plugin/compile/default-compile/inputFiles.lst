@@ -1,8 +1,9 @@
-C:\Users\slere\Desktop\LereahSol_pruebatec2\src\main\java\com\HackABoss\LereahSol_pruebatec2\servlets\SvTramite.java
 C:\Users\slere\Desktop\LereahSol_pruebatec2\src\main\java\com\HackABoss\LereahSol_pruebatec2\logica\Ciudadano.java
+C:\Users\slere\Desktop\LereahSol_pruebatec2\src\main\java\com\HackABoss\LereahSol_pruebatec2\servlets\SvElimTurno.java
 C:\Users\slere\Desktop\LereahSol_pruebatec2\src\main\java\com\HackABoss\LereahSol_pruebatec2\persistencia\exceptions\PreexistingEntityException.java
 C:\Users\slere\Desktop\LereahSol_pruebatec2\src\main\java\com\HackABoss\LereahSol_pruebatec2\logica\exceptions\PreexistingEntityException.java
 C:\Users\slere\Desktop\LereahSol_pruebatec2\src\main\java\com\HackABoss\LereahSol_pruebatec2\persistencia\exceptions\NonexistentEntityException.java
+C:\Users\slere\Desktop\LereahSol_pruebatec2\src\main\java\com\HackABoss\LereahSol_pruebatec2\servlets\SvTurnosFiltrados.java
 C:\Users\slere\Desktop\LereahSol_pruebatec2\src\main\java\com\HackABoss\LereahSol_pruebatec2\persistencia\TurnoJpaController.java
 C:\Users\slere\Desktop\LereahSol_pruebatec2\src\main\java\com\HackABoss\LereahSol_pruebatec2\persistencia\CiudadanoJpaController.java
 C:\Users\slere\Desktop\LereahSol_pruebatec2\src\main\java\com\HackABoss\LereahSol_pruebatec2\persistencia\ControladoraPersistencia.java
@@ -14,4 +15,5 @@ C:\Users\slere\Desktop\LereahSol_pruebatec2\src\main\java\com\HackABoss\LereahSo
 C:\Users\slere\Desktop\LereahSol_pruebatec2\src\main\java\com\HackABoss\LereahSol_pruebatec2\servlets\SvCiudadano.java
 C:\Users\slere\Desktop\LereahSol_pruebatec2\src\main\java\com\HackABoss\LereahSol_pruebatec2\resources\JakartaEE8Resource.java
 C:\Users\slere\Desktop\LereahSol_pruebatec2\src\main\java\com\HackABoss\LereahSol_pruebatec2\logica\Controladora.java
+C:\Users\slere\Desktop\LereahSol_pruebatec2\src\main\java\com\HackABoss\LereahSol_pruebatec2\servlets\SvEditTurno.java
 C:\Users\slere\Desktop\LereahSol_pruebatec2\src\main\java\com\HackABoss\LereahSol_pruebatec2\logica\exceptions\NonexistentEntityException.java

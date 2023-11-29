@@ -12,8 +12,8 @@ import javax.persistence.OneToMany;
 @Entity
 public class Ciudadano implements Serializable {
     @Id
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
-    private Long idCiudadano;
+    @GeneratedValue(strategy=GenerationType.SEQUENCE)
+    private int idCiudadano;
     
     private String nombre;
     private String Apellido;
@@ -26,7 +26,7 @@ public class Ciudadano implements Serializable {
     public Ciudadano() {
     }
 
-    public Ciudadano(Long idCiudadano, String nombre, String Apellido, String dni, String telefono, List<Turno> turnos) {
+    public Ciudadano(int idCiudadano, String nombre, String Apellido, String dni, String telefono, List<Turno> turnos) {
         this.idCiudadano = idCiudadano;
         this.nombre = nombre;
         this.Apellido = Apellido;
@@ -35,11 +35,11 @@ public class Ciudadano implements Serializable {
         this.turnos = turnos;
     }
 
-    public Long getIdCiudadano() {
+    public int getIdCiudadano() {
         return idCiudadano;
     }
 
-    public void setIdCiudadano(Long idCiudadano) {
+    public void setIdCiudadano(int idCiudadano) {
         this.idCiudadano = idCiudadano;
     }
 
@@ -83,6 +83,5 @@ public class Ciudadano implements Serializable {
         this.turnos = turnos;
     }
 
-    
    
 }

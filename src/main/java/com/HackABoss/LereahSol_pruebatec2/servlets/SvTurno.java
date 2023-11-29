@@ -5,10 +5,7 @@ import com.HackABoss.LereahSol_pruebatec2.logica.Controladora;
 import com.HackABoss.LereahSol_pruebatec2.logica.Turno;
 import java.io.IOException;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -35,39 +32,39 @@ public class SvTurno extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
-        // Obtener la sesión
-        HttpSession miSession = request.getSession(false);
         try {
+            HttpSession miSession = request.getSession(false);
+
             if (miSession != null) {
-                // Obtener el Ciudadano de la sesión
                 Ciudadano ciudadano = (Ciudadano) miSession.getAttribute("ciudadano");
 
                 if (ciudadano != null) {
-                    // Obtener otros datos del formulario
                     String fechaInput = request.getParameter("inputDate");
                     String tramite = request.getParameter("tipoTramite");
-                    //formateo de fecha
-                    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-                    Date fecha= sdf.parse(fechaInput);
-                    System.out.println(fecha);
-                    // Crear un nuevo Turno y agregar datos del Ciudadano
+
+                    // Manejo de formato de fecha
+                    Date fecha = null;
+                    fecha = control.formatearFecha(fechaInput);
+
                     Turno turno = new Turno();
                     turno.setFecha(fecha);
                     turno.setTramite(tramite);
-                    turno.setEstado("En espera");
+                    turno.setEstado("En Espera");
                     turno.setUnCiudadano(ciudadano);
-                    
-                 
+
                     control.crearTurno(turno);
-                   request.getRequestDispatcher("index.jsp").forward(request, response);          
+
+                    response.sendRedirect("index.jsp");
+                } else {
+                    // Manejo si el ciudadano no está en la sesión
+                    response.sendRedirect("error.jsp");
                 }
             }
+        } catch (IOException e) {
 
-        } catch (ParseException ex) {
-            Logger.getLogger(SvTurno.class.getName()).log(Level.SEVERE, null, ex);
+            response.sendRedirect("error.jsp");
         }
-       
+
     }
 
     @Override
