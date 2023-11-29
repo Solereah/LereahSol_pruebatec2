@@ -5,7 +5,7 @@
 
 
 <section class="p-5">
-    <!-- Form -->
+    <!-- Form Alta del Ciudadano-->
     <div class="container-md shadow p-3 mb-5 bg-body rounded" style="background-color: #e3f2fd;">
         <h3 class="mb-4">Formulario para Sacar Turno</h3>
         <p>Para obtener una cita se deben introducir los datos de la persona que va a reservar la cita. Todos los campos son obligatorios.</p>

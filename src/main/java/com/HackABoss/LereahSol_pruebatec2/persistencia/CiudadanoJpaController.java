@@ -1,4 +1,3 @@
-
 package com.HackABoss.LereahSol_pruebatec2.persistencia;
 
 import com.HackABoss.LereahSol_pruebatec2.logica.Ciudadano;
@@ -15,15 +14,16 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
-
 public class CiudadanoJpaController implements Serializable {
 
     public CiudadanoJpaController(EntityManagerFactory emf) {
         this.emf = emf;
     }
-       public CiudadanoJpaController() {
+
+    public CiudadanoJpaController() {
         emf = Persistence.createEntityManagerFactory("GestionTurnosPU");
     }
+    
     private EntityManagerFactory emf = null;
 
     public EntityManager getEntityManager() {
@@ -32,13 +32,13 @@ public class CiudadanoJpaController implements Serializable {
 
     public void create(Ciudadano ciudadano) {
         if (ciudadano.getTurnos() == null) {
-            ciudadano.setTurnos(new ArrayList<>());
+            ciudadano.setTurnos(new ArrayList<Turno>());
         }
         EntityManager em = null;
         try {
             em = getEntityManager();
             em.getTransaction().begin();
-            List<Turno> attachedTurnos = new ArrayList<>();
+            List<Turno> attachedTurnos = new ArrayList<Turno>();
             for (Turno turnosTurnoToAttach : ciudadano.getTurnos()) {
                 turnosTurnoToAttach = em.getReference(turnosTurnoToAttach.getClass(), turnosTurnoToAttach.getIdTurno());
                 attachedTurnos.add(turnosTurnoToAttach);
@@ -70,7 +70,7 @@ public class CiudadanoJpaController implements Serializable {
             Ciudadano persistentCiudadano = em.find(Ciudadano.class, ciudadano.getIdCiudadano());
             List<Turno> turnosOld = persistentCiudadano.getTurnos();
             List<Turno> turnosNew = ciudadano.getTurnos();
-            List<Turno> attachedTurnosNew = new ArrayList<>();
+            List<Turno> attachedTurnosNew = new ArrayList<Turno>();
             for (Turno turnosNewTurnoToAttach : turnosNew) {
                 turnosNewTurnoToAttach = em.getReference(turnosNewTurnoToAttach.getClass(), turnosNewTurnoToAttach.getIdTurno());
                 attachedTurnosNew.add(turnosNewTurnoToAttach);
@@ -183,5 +183,5 @@ public class CiudadanoJpaController implements Serializable {
             em.close();
         }
     }
-    
+
 }

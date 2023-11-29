@@ -15,15 +15,25 @@
         <p>Puede filtrar los turnos según su fecha y estado:</p>
 
         <!-- Formulario para seleccionar la fecha -->
-        <form action= "SvTurnosFiltrados" method="GET" class="mb-3  row g-3">
-
-            <div class="col-md-6">
-                <label for="inputFecha" class="form-label">Fecha:</label>
-                <input type="date" class="form-control"  id="inputDate" name="inputDate">
-            </div>
-
-            <div class="col-md-6 mt-2">
-                <button type="submit" class="btn btn-primary ml-2 mt-3">Buscar</button>
+        <form action="SvTurno" method="GET" class="mb-3">
+            <div class="container mt-3">
+                <div class="d-flex align-items-center gap-2 justify-content-around">
+                    <div class="col-md-4">
+                        <label for="inputDate" class="form-label">Fecha:</label>
+                        <input type="date" class="form-control" id="inputDate" name="inputDate">
+                    </div>
+                    <div class="container d-flex align-items-end justify-content-around align-self-end">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="En Espera" name="estado">
+                            <label class="form-check-label" for="inlineCheckbox1">En Espera</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="Atendido" name="estado">
+                            <label class="form-check-label" for="inlineCheckbox2">Atendido</label>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Buscar</button>
+                    </div>
+                </div>
             </div>
         </form>
     </div> 
@@ -44,10 +54,11 @@
                     <th scope="col">Cancelar</th>
                 </tr>
             </thead>
-            <% List<Turno> turnosFiltrados = (List) request.getSession().getAttribute("turnosFiltrados");
-                if (turnosFiltrados != null && !turnosFiltrados.isEmpty()) {%> 
+
+            <%List<Turno> listaTurnos = (List) request.getSession().getAttribute("listaTurnos");%>
+            <% if(listaTurnos != null && !listaTurnos.isEmpty())  { %>
             <tbody>
-                <%for (Turno turno : turnosFiltrados) {%>
+                <%for (Turno turno : listaTurnos) {%>
                 <tr>
                     <th scope="row"><%=turno.getIdTurno()%></th>
                     <td><%=turno.getFecha()%></td>
@@ -70,13 +81,12 @@
                         </form>
                     </td>
                 </tr> 
-            </tbody>
                 <%}%>
-        </table>
-             <%}%>
+            </tbody>
+            <%}%>
+     </table>
     </div>
-
-    <!-- Modal -->
+<!------------Modal------------>
     <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -84,6 +94,7 @@
                     <h5 class="modal-title" id="staticBackdropLabel">Editar Estado Trámite</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
+
                 <form action="SvEditTurno" method="POST">
                     <div class="modal-body">
                         Seleccione el estado del trámite
@@ -99,16 +110,15 @@
                                 Atendido
                             </label>
                         </div>
-                        <input type="hidden" name="idTurnEdit">
+                        <input type="hidden" name="idTurnEdit" value="">
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
                         <button type="submit" class="btn btn-primary">Guardar</button>
                     </div>
-                
                 </form>
+
             </div>
-       
         </div>
     </div>
 </section>

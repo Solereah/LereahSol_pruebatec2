@@ -27,31 +27,33 @@ public class SvTurnosFiltrados extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-         
+
         List<Turno> turnosFiltrados = new ArrayList<>();
 
         String fechaInput = request.getParameter("inputDate");
-       // String estado = request.getParameter("estado");
+        String estado = request.getParameter("estado");
 
         Date fecha = control.formatearFecha(fechaInput);
-        
-       if (fechaInput != null) {
+
+        System.out.println("estado es: " + estado);
+
+        if (fecha != null && estado == null) {
             turnosFiltrados = control.filtrarPorFecha(fecha);
+            System.out.println("Entre en filtro por fecha");
         }
-        for (Turno turno : turnosFiltrados) {
-
-            System.out.println("turno " + turno.getIdTurno());
+        if (fechaInput != null && estado != null) {
+            turnosFiltrados = control.filtrarPorFechaEstado(fecha, estado);
+            System.out.println("Entre en filtro por fecha y estado");
         }
 
+      
+        //Con session
         HttpSession misession = request.getSession();
         misession.setAttribute("turnosFiltrados", turnosFiltrados);
+        response.sendRedirect("mostrarTurnos.jsp");
 
-        // Redirigir después de establecer los atributos
-       // RequestDispatcher dispatcher = request.getRequestDispatcher("mostrarTurnos.jsp");
-        //dispatcher.forward(request, response);
-       response.sendRedirect("mostrarTurnos.jsp");
+        
     }
-
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {

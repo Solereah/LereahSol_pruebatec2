@@ -10,7 +10,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 @WebServlet(name = "SvEditTurno", urlPatterns = {"/SvEditTurno"})
 public class SvEditTurno extends HttpServlet {
@@ -38,13 +37,11 @@ public class SvEditTurno extends HttpServlet {
 
         String nuevoEstado = request.getParameter("estado");
         System.out.println(nuevoEstado);
+        
         turnoEdit.setEstado(nuevoEstado);
         control.editarTurno(turnoEdit);
-
         
-        // Redirigir después de establecer los atributos
-        //RequestDispatcher dispatcher = request.getRequestDispatcher("mostrarTurnos.jsp");
-        //dispatcher.forward(request, response);
+       
         response.sendRedirect("mostrarTurnos.jsp");
 
     }

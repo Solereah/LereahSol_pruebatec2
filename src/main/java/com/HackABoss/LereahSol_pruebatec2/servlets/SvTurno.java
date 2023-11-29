@@ -4,8 +4,9 @@ import com.HackABoss.LereahSol_pruebatec2.logica.Ciudadano;
 import com.HackABoss.LereahSol_pruebatec2.logica.Controladora;
 import com.HackABoss.LereahSol_pruebatec2.logica.Turno;
 import java.io.IOException;
-import java.text.ParseException;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -27,13 +28,35 @@ public class SvTurno extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
+        List<Turno> listaTurnos = new ArrayList<>();
+        listaTurnos = control.traerTurnos();
+        
+        if (listaTurnos != null) {
+
+            String fechaInput = request.getParameter("inputDate");
+            //String estado = request.getParameter("estado");
+
+            Date fecha = control.formatearFecha(fechaInput);
+
+            //System.out.println("estado es: " + estado);
+            if (fecha != null) {
+                listaTurnos = control.filtrarPorFecha(fecha);
+                System.out.println("Entre en filtro por fecha");
+            }
+        }
+
+        //Con session
+        HttpSession miSession = request.getSession();
+        miSession.setAttribute("listaTurnos", listaTurnos);
+        response.sendRedirect("mostrarTurnos.jsp");
+
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        HttpSession miSession = request.getSession(false);
         try {
-            HttpSession miSession = request.getSession(false);
 
             if (miSession != null) {
                 Ciudadano ciudadano = (Ciudadano) miSession.getAttribute("ciudadano");
@@ -42,15 +65,14 @@ public class SvTurno extends HttpServlet {
                     String fechaInput = request.getParameter("inputDate");
                     String tramite = request.getParameter("tipoTramite");
 
-                    // Manejo de formato de fecha
-                    Date fecha = null;
-                    fecha = control.formatearFecha(fechaInput);
+                    Date fecha = control.formatearFecha(fechaInput);
 
                     Turno turno = new Turno();
+
                     turno.setFecha(fecha);
                     turno.setTramite(tramite);
-                    turno.setEstado("En Espera");
                     turno.setUnCiudadano(ciudadano);
+                    turno.setEstado("En Espera");
 
                     control.crearTurno(turno);
 
@@ -61,8 +83,11 @@ public class SvTurno extends HttpServlet {
                 }
             }
         } catch (IOException e) {
-
+            System.out.println("Se ha producido un error en la creacion del turno" + e);
             response.sendRedirect("error.jsp");
+        } finally {
+            // Limpieza de la sesión
+            miSession.invalidate();
         }
 
     }

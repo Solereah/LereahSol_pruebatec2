@@ -16,7 +16,7 @@ public class Ciudadano implements Serializable {
     private int idCiudadano;
     
     private String nombre;
-    private String Apellido;
+    private String apellido;
     private String dni;
     private String telefono;
     
@@ -26,10 +26,10 @@ public class Ciudadano implements Serializable {
     public Ciudadano() {
     }
 
-    public Ciudadano(int idCiudadano, String nombre, String Apellido, String dni, String telefono, List<Turno> turnos) {
+    public Ciudadano(int idCiudadano, String nombre, String apellido, String dni, String telefono, List<Turno> turnos) {
         this.idCiudadano = idCiudadano;
         this.nombre = nombre;
-        this.Apellido = Apellido;
+        this.apellido = apellido;
         this.dni = dni;
         this.telefono = telefono;
         this.turnos = turnos;
@@ -52,11 +52,11 @@ public class Ciudadano implements Serializable {
     }
 
     public String getApellido() {
-        return Apellido;
+        return apellido;
     }
 
     public void setApellido(String Apellido) {
-        this.Apellido = Apellido;
+        this.apellido = Apellido;
     }
 
     public String getDni() {

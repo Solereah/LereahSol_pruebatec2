@@ -1,4 +1,3 @@
-
 package com.HackABoss.LereahSol_pruebatec2.persistencia;
 
 import java.io.Serializable;
@@ -14,13 +13,13 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
-
 public class TurnoJpaController implements Serializable {
 
     public TurnoJpaController(EntityManagerFactory emf) {
         this.emf = emf;
     }
-       public TurnoJpaController() {
+
+    public TurnoJpaController() {
         emf = Persistence.createEntityManagerFactory("GestionTurnosPU");
     }
     private EntityManagerFactory emf = null;
@@ -161,5 +160,5 @@ public class TurnoJpaController implements Serializable {
             em.close();
         }
     }
-    
+
 }

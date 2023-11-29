@@ -20,12 +20,10 @@ public class ControladoraPersistencia {
         ciudaJPA.create(ciuda);
     }
 
-
     public Ciudadano traerCiudadano(int id) {
         return ciudaJPA.findCiudadano(id);
     }
 
- 
     public List<Ciudadano> traerCiudadanos() {
         return ciudaJPA.findCiudadanoEntities();
     }

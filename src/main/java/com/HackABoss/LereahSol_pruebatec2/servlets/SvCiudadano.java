@@ -40,21 +40,16 @@ public class SvCiudadano extends HttpServlet {
         ciudadano.setDni(dni);
         ciudadano.setTelefono(tel);
 
-        boolean validacion = control.ciudadanoExiste(dni, apellido);
+        boolean ciudadanoExiste = control.ciudadanoExiste(nombre, apellido, dni);
 
-        if (!validacion) {
-
-            HttpSession miSession = request.getSession(true);
-            miSession.setAttribute("ciudadano", ciudadano);
-
+        if (!ciudadanoExiste) {
             control.crearCiudadano(ciudadano);
-
-            response.sendRedirect("altaTurno.jsp");
-
-        } else {
-
-            response.sendRedirect("altaTurno.jsp");
         }
+
+        HttpSession miSession = request.getSession(true);
+        miSession.setAttribute("ciudadano", ciudadano);
+
+        response.sendRedirect("altaTurno.jsp");
 
     }
 

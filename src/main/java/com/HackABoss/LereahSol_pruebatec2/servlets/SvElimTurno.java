@@ -2,7 +2,6 @@ package com.HackABoss.LereahSol_pruebatec2.servlets;
 
 import com.HackABoss.LereahSol_pruebatec2.logica.Controladora;
 import java.io.IOException;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -33,9 +32,7 @@ public class SvElimTurno extends HttpServlet {
         
         control.eliminarTurno(idTurno);
         
-        // Redirigir después de establecer los atributos
-       // RequestDispatcher dispatcher = request.getRequestDispatcher("mostrarTurnos.jsp");
-        //dispatcher.forward(request, response);
+      
         response.sendRedirect("mostrarTurnos.jsp");
     }
 

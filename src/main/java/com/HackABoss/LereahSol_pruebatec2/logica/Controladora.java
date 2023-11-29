@@ -15,7 +15,6 @@ public class Controladora {
     ControladoraPersistencia controlPersis = new ControladoraPersistencia();
 
     //-----------------------CIUDADANOS----------------------- 
-
     public void crearCiudadano(Ciudadano ciuda) {
         controlPersis.crearCiudadano(ciuda);
     }
@@ -24,29 +23,21 @@ public class Controladora {
         return controlPersis.traerCiudadano(id);
     }
 
-
     public List<Ciudadano> traerCiudadanos() {
         return controlPersis.traerCiudadanos();
     }
 
- 
-    public boolean ciudadanoExiste(String dni, String apellido) {
-        boolean existe;
-        List<Ciudadano> ciudaEncontrado = controlPersis.traerCiudadanos().stream()
-                .filter(c -> c.getDni().equalsIgnoreCase(dni))
-                .filter(c -> c.getApellido().equalsIgnoreCase(apellido))
-                .collect(Collectors.toList());
-        existe = !ciudaEncontrado.isEmpty();
-        return existe;
+    public boolean ciudadanoExiste(String nombre, String apellido, String dni) {
+        return controlPersis.traerCiudadanos().stream()
+                .anyMatch(ciudadano -> ciudadano.getNombre().equalsIgnoreCase(nombre) && ciudadano.getApellido().equalsIgnoreCase(apellido) && ciudadano.getDni().equalsIgnoreCase(dni));
+
     }
 
     //-----------------------TURNOS----------------------- 
-
     public void crearTurno(Turno nuevoTurno) {
         controlPersis.crearTurno(nuevoTurno);
     }
 
-   
     public Turno traerTurno(int id) {
         return controlPersis.traerTurno(id);
     }
@@ -56,38 +47,40 @@ public class Controladora {
 
     }
 
- 
     public void editarTurno(Turno turno) {
         controlPersis.editarTurno(turno);
     }
 
-   
     public void eliminarTurno(int id) {
         controlPersis.eliminarTurno(id);
     }
 
     //--------------------MÉTODOS--------------------
     public Date formatearFecha(String fechaInput) {
-        
+        if (fechaInput == null || fechaInput.isEmpty()) {
+            // Manejar caso de entrada nula o vacía según tus necesidades
+            return null;
+        }
+
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+
         try {
             Date fecha = sdf.parse(fechaInput);
             return fecha;
-            
         } catch (ParseException ex) {
-        Logger.getLogger(SvTurno.class.getName()).log(Level.SEVERE, "Error al parsear la fecha", ex);
- 
+            Logger.getLogger(SvTurno.class.getName()).log(Level.SEVERE, "Error al parsear la fecha", ex);
+            return null;
+
         }
-        return null;
     }
-   
- 
+
     public List<Turno> filtrarPorFecha(Date fecha) {
 
-        return  controlPersis.traerTurnos().stream()
+        return controlPersis.traerTurnos().stream()
                 .filter(t -> t.getFecha().equals(fecha))
                 .collect(Collectors.toList());
     }
+
     public List<Turno> filtrarPorFechaEstado(Date fecha, String estado) {
 
         List<Turno> turnosFiltrados = filtrarPorFecha(fecha);
