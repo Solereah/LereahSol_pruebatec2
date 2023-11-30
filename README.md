@@ -12,7 +12,7 @@ Este es un sistema de gestión de turnos que permite a los usuarios crear turnos
 ![Logo de Mi Proyecto](./imagesReadme/pantallaCiuda.png)
 ![Logo de Mi Proyecto](./imagesReadme/pantallaTurno.png)
 ![Logo de Mi Proyecto](./imagesReadme/mostrarTurnos.png)
-![Logo de Mi Proyecto](./imagesReadme/mostrarTurnosFecha.png)
+![Logo de Mi Proyecto](./imagesReadme/filtroFechaEstado.png)
 
 
 ## Uso
