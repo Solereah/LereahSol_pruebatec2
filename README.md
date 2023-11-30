@@ -1,21 +1,13 @@
-# LereahSol_pruebatec2
-Prueba Técnica del Módulo Java Avanzado para Bootcamp Hack A Boss
-
-Sistema de Gestión de Turnos
-Este es un sistema simple de gestión de turnos que permite a los usuarios crear turnos, editar su estado de "En Espera" a "Atendido", y eliminar turnos. También cuenta con funciones de filtrado por fecha y estado de turno.
-
+![Logo de Mi Proyecto](./imagesReadme/CitaAgil.png)
 
 # CitaÁgil
 
 Sistema de Gestión de Turnos
 Este es un sistema de gestión de turnos que permite a los usuarios crear turnos, editar su estado de "En Espera" a "Atendido", y eliminar turnos. También cuenta con funciones de filtrado por fecha y estado de turno.
 
-
-
-
 ## Modelado de Clases
 
-
+![Logo de Mi Proyecto](./imagesReadme/umlAppTurnos.drawio.png)
 ## Screenshots
 
 
