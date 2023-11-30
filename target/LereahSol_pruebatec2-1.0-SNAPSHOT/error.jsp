@@ -16,8 +16,7 @@
                     <p class="card-text">Lamentamos las molestias, por favor intente nuevamente.</p>
                 </div>
             </div>
-
-            <%@include file="componentes/footer.jsp"%> 
         </div>
+           <%@include file="componentes/footer.jsp"%> 
     </body>
 </html>

@@ -37,6 +37,9 @@ public class SvElimTurno extends HttpServlet {
         
         List<Turno> turnosActualizados = control.traerTurnos();
         
+        
+        control.ordernarTurnos(turnosActualizados);
+        
         HttpSession session = request.getSession();
         session.setAttribute("listaTurnos", turnosActualizados);
         

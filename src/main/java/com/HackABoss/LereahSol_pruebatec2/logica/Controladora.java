@@ -4,6 +4,7 @@ import com.HackABoss.LereahSol_pruebatec2.persistencia.ControladoraPersistencia;
 import com.HackABoss.LereahSol_pruebatec2.servlets.SvTurno;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 import java.util.logging.Level;
@@ -81,8 +82,8 @@ public class Controladora {
         }
     }
 
+    //Filtros de turnos
     public List<Turno> filtrarPorFecha(Date fecha) {
-
         return controlPersis.traerTurnos().stream()
                 .filter(t -> t.getFecha().equals(fecha))
                 .collect(Collectors.toList());
@@ -94,24 +95,21 @@ public class Controladora {
         turnosFiltrados = turnosFiltrados.stream()
                 .filter(t -> t.getEstado().equalsIgnoreCase(estado))
                 .collect(Collectors.toList());
-
         return turnosFiltrados;
     }
-    
-    
-    public void ordenarTurnos(){
-    
+
+    //Ordenar turnos por id de manera ascendente
+    public void ordernarTurnos(List<Turno> turnos) {
+        Collections.sort(turnos, (turno1, turno2) -> Integer.compare(turno1.getIdTurno(), turno2.getIdTurno()));
     }
-    
 
 // Expresión regular que permite letras con tildes y la letra 'ñ'
-    public boolean validarNombreApellido(String texto) {
-
+    public boolean validarNombApe(String texto) {
         String regex = "^[a-zA-ZáéíóúÁÉÍÓÚñÑ\\s]+$";
         return texto.matches(regex);
     }
-    // Expresión regular que permite un DNI de 8 dígitos
 
+    // Expresión regular que permite un DNI de 8 dígitos
     public boolean validarDNI(String dni) {
         String regex = "^[0-9]{8}$";
         return dni.matches(regex);
@@ -119,7 +117,6 @@ public class Controladora {
 // Expresión regular que permite un número de teléfono de 9 dígitos
 
     public boolean validarTelefono(String telefono) {
-
         String regex = "^[0-9]{9}$";
         return telefono.matches(regex);
     }

@@ -4,8 +4,6 @@ import com.HackABoss.LereahSol_pruebatec2.logica.Ciudadano;
 import com.HackABoss.LereahSol_pruebatec2.logica.Controladora;
 import com.HackABoss.LereahSol_pruebatec2.logica.Turno;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 import javax.servlet.ServletException;
@@ -30,9 +28,10 @@ public class SvTurno extends HttpServlet {
             throws ServletException, IOException {
 
         List<Turno> listaTurnos = control.traerTurnos();
-       
-     
         
+        // Ordenar los turnos por ID
+        control.ordernarTurnos(listaTurnos);
+
         // Filtro fechas y estado
         if (listaTurnos != null) {
             String fechaInput = request.getParameter("inputDate");
@@ -50,9 +49,7 @@ public class SvTurno extends HttpServlet {
                 }
             }
         }
-           // Ordenar los turnos por ID
-        Collections.sort(listaTurnos, (turno1, turno2) -> Integer.compare(turno1.getIdTurno(),turno2.getIdTurno()));
-        
+
         HttpSession miSession = request.getSession();
         miSession.setAttribute("listaTurnos", listaTurnos);
         response.sendRedirect("mostrarTurnos.jsp");
@@ -62,6 +59,7 @@ public class SvTurno extends HttpServlet {
     @SuppressWarnings("null")
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+
         HttpSession miSession = request.getSession(false);
         try {
 
@@ -92,7 +90,6 @@ public class SvTurno extends HttpServlet {
             System.out.println("Se ha producido un error en la creacion del turno" + e);
             response.sendRedirect("error.jsp");
         } finally {
-
             miSession.invalidate();// Limpiar sesión
         }
 

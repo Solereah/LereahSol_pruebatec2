@@ -34,12 +34,12 @@ public class SvEditTurno extends HttpServlet {
 
         int idTurnoEdit = Integer.parseInt(request.getParameter("idTurno"));
         System.out.println(idTurnoEdit);
-        
+
         Turno turnoEdit = control.traerTurno(idTurnoEdit);
         String estado = turnoEdit.getEstado();
 
         System.out.println("Estado es: " + estado);
-        
+
         if (estado != null && !estado.isEmpty()) {
             if (estado.equalsIgnoreCase("En Espera")) {
                 turnoEdit.setEstado("Atendido");
@@ -50,6 +50,9 @@ public class SvEditTurno extends HttpServlet {
             control.editarTurno(turnoEdit);
         }
         List<Turno> estadosActualizados = control.traerTurnos();
+
+        // Ordenar los turnos por ID
+        control.ordernarTurnos(estadosActualizados);
 
         HttpSession session = request.getSession();
         session.setAttribute("listaTurnos", estadosActualizados);
