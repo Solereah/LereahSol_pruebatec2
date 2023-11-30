@@ -29,8 +29,7 @@ public class SvTurno extends HttpServlet {
 
         List<Turno> listaTurnos = control.traerTurnos();
         
-        // Ordenar los turnos por ID
-        control.ordernarTurnos(listaTurnos);
+      
 
         // Filtro fechas y estado
         if (listaTurnos != null) {
@@ -49,6 +48,8 @@ public class SvTurno extends HttpServlet {
                 }
             }
         }
+          // Ordenar los turnos por ID
+        control.ordernarTurnos(listaTurnos);
 
         HttpSession miSession = request.getSession();
         miSession.setAttribute("listaTurnos", listaTurnos);
