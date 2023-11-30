@@ -7,7 +7,7 @@ Este es un sistema de gestión de turnos que permite a los usuarios crear turnos
 
 ## Modelado de Clases
 
-![Logo de Mi Proyecto](./imagesReadme/umlAppTurnos.drawio.png)
+![Logo de Mi Proyecto](./imagesReadme/Uml.png)
 ## Screenshots
 
 
