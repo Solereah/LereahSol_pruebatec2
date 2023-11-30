@@ -12,20 +12,20 @@
         <form action="SvCiudadano" method="POST" class="row g-3" accept-charset="ISO-8859-1">
             <div class="col-md-6">
                 <label for="inputNombre" class="form-label">Nombre</label>
-                <input type="text" class="form-control" id="inputNombre" name="inputNombre" placeholder="Nombre"  required>
+                <input type="text" class="form-control" id="inputNombre" name="inputNombre" placeholder="Nombre"  required maxlength="50">
             </div>
             <div class="col-md-6">
                 <label for="inputApellido" class="form-label">Apellido</label>
-                <input type="text" class="form-control" id="inputApellido" name="inputApellido" placeholder="Apellido" required>
+                <input type="text" class="form-control" id="inputApellido" name="inputApellido" placeholder="Apellido" required maxlength="50">
             </div>
 
             <div class="col-md-6">
                 <label for="inputDNI" class="form-label">DNI</label>
-                <input type="text" class="form-control" id="inputDNI"  name="inputDNI" placeholder="DNI" required>
+                <input type="text" class="form-control" id="inputDNI"  name="inputDNI" placeholder="DNI" required maxlength="8">
             </div>
             <div class="col-md-6">
                 <label for="inputTel" class="form-label">Teléfono</label>
-                <input type="tel" class="form-control" id="inputTel"  name="inputTel" placeholder="Teléfono" required>
+                <input type="tel" class="form-control" id="inputTel"  name="inputTel" placeholder="Teléfono" required maxlength="9">
             </div>
 
             <div class="col-12">

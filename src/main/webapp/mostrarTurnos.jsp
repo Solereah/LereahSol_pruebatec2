@@ -1,4 +1,5 @@
 
+<%@page import="java.text.SimpleDateFormat"%>
 <%@page import="com.HackABoss.LereahSol_pruebatec2.logica.Turno"%>
 <%@page import="java.util.List"%>
 
@@ -58,10 +59,11 @@
             <%List<Turno> listaTurnos = (List) request.getSession().getAttribute("listaTurnos");%>
             <% if (listaTurnos != null && !listaTurnos.isEmpty()) { %>
             <tbody>
+                <% SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd"); %>
                 <%for (Turno turno : listaTurnos) {%>
                 <tr>
                     <th scope="row"><%=turno.getIdTurno()%></th>
-                    <td><%=turno.getFecha()%></td>
+                    <td><%= sdf.format(turno.getFecha())%></td>
                     <td><%=turno.getUnCiudadano().getNombre()%></td>
                     <td><%=turno.getUnCiudadano().getApellido()%></td>
                     <td><%=turno.getUnCiudadano().getDni()%></td>

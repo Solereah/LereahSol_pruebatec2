@@ -5,6 +5,7 @@ import com.HackABoss.LereahSol_pruebatec2.logica.Controladora;
 import com.HackABoss.LereahSol_pruebatec2.logica.Turno;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 import javax.servlet.ServletException;
@@ -28,30 +29,33 @@ public class SvTurno extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        List<Turno> listaTurnos = new ArrayList<>();
-        listaTurnos = control.traerTurnos();
+        List<Turno> listaTurnos = control.traerTurnos();
+       
+     
         
-        //Filtro fechas y estado
+        // Filtro fechas y estado
         if (listaTurnos != null) {
-
             String fechaInput = request.getParameter("inputDate");
             String estado = request.getParameter("estado");
 
-            Date fecha = control.formatearFecha(fechaInput);
+            if (fechaInput != null && !fechaInput.isEmpty()) {
+                Date fecha = control.formatearFecha(fechaInput);
 
-            if (fechaInput != null && !fechaInput.isEmpty() && estado != null && !estado.isEmpty()) {
-               
-               listaTurnos =control.filtrarPorFechaEstado(fecha, estado);
-            }else{
-                listaTurnos = control.filtrarPorFecha(fecha);
-              
+                if (estado != null && !estado.isEmpty()) {
+                    // Filtro por fecha y estado
+                    listaTurnos = control.filtrarPorFechaEstado(fecha, estado);
+                } else {
+                    // Filtro solo por fecha
+                    listaTurnos = control.filtrarPorFecha(fecha);
+                }
             }
         }
+           // Ordenar los turnos por ID
+        Collections.sort(listaTurnos, (turno1, turno2) -> Integer.compare(turno1.getIdTurno(),turno2.getIdTurno()));
         
         HttpSession miSession = request.getSession();
         miSession.setAttribute("listaTurnos", listaTurnos);
         response.sendRedirect("mostrarTurnos.jsp");
-
     }
 
     @Override
@@ -88,8 +92,8 @@ public class SvTurno extends HttpServlet {
             System.out.println("Se ha producido un error en la creacion del turno" + e);
             response.sendRedirect("error.jsp");
         } finally {
-           
-            miSession.invalidate();  // Limpieza de la sesión
+
+            miSession.invalidate();// Limpiar sesión
         }
 
     }

@@ -30,12 +30,13 @@ public class Controladora {
             if (ciudadano.getNombre().equalsIgnoreCase(nombre)
                     && ciudadano.getApellido().equalsIgnoreCase(apellido)
                     && ciudadano.getDni().equalsIgnoreCase(dni)) {
-                return ciudadano.getIdCiudadano(); 
-            }      
-    }
+                return ciudadano.getIdCiudadano();
+            }
+        }
         return 0;
-    
+
     }
+
     public List<Ciudadano> traerCiudadanos() {
         return controlPersis.traerCiudadanos();
     }
@@ -65,7 +66,6 @@ public class Controladora {
     //--------------------MÉTODOS--------------------
     public Date formatearFecha(String fechaInput) {
         if (fechaInput == null || fechaInput.isEmpty()) {
-            // Manejar caso de entrada nula o vacía según tus necesidades
             return null;
         }
 
@@ -89,12 +89,33 @@ public class Controladora {
     }
 
     public List<Turno> filtrarPorFechaEstado(Date fecha, String estado) {
-
         List<Turno> turnosFiltrados = filtrarPorFecha(fecha);
-        turnosFiltrados.stream()
+
+        turnosFiltrados = turnosFiltrados.stream()
                 .filter(t -> t.getEstado().equalsIgnoreCase(estado))
                 .collect(Collectors.toList());
+
         return turnosFiltrados;
+    }
+
+// Expresión regular que permite letras con tildes y la letra 'ñ'
+    public boolean validarNombreApellido(String texto) {
+
+        String regex = "^[a-zA-ZáéíóúÁÉÍÓÚñÑ\\s]+$";
+        return texto.matches(regex);
+    }
+    // Expresión regular que permite un DNI de 8 dígitos
+
+    public boolean validarDNI(String dni) {
+        String regex = "^[0-9]{8}$";
+        return dni.matches(regex);
+    }
+// Expresión regular que permite un número de teléfono de 9 dígitos
+
+    public boolean validarTelefono(String telefono) {
+
+        String regex = "^[0-9]{9}$";
+        return telefono.matches(regex);
     }
 
 }
