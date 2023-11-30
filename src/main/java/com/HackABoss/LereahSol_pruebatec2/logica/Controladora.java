@@ -97,6 +97,12 @@ public class Controladora {
 
         return turnosFiltrados;
     }
+    
+    
+    public void ordenarTurnos(){
+    
+    }
+    
 
 // Expresión regular que permite letras con tildes y la letra 'ñ'
     public boolean validarNombreApellido(String texto) {
