@@ -24,7 +24,7 @@ public class Controladora {
     public Ciudadano traerCiudadano(int id) {
         return controlPersis.traerCiudadano(id);
     }
-
+    
     public int obtenerIdCiudadano(String nombre, String apellido, String dni) {
         List<Ciudadano> ciudadanos = controlPersis.traerCiudadanos();
 

@@ -48,7 +48,7 @@ public class SvEditTurno extends HttpServlet {
         }
         List<Turno> estadosActualizados = control.traerTurnos();
 
-        // Ordenar los turnos por ID
+        // Ordenar los turnos por ID asc
         control.ordernarTurnos(estadosActualizados);
 
         HttpSession session = request.getSession();

@@ -29,9 +29,8 @@ public class SvTurno extends HttpServlet {
 
         List<Turno> listaTurnos = control.traerTurnos();
         
-      
 
-        // Filtro fechas y estado
+        // Filtros de turnos
         if (listaTurnos != null) {
             String fechaInput = request.getParameter("inputDate");
             String estado = request.getParameter("estado");

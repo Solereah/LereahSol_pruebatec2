@@ -1,6 +1,5 @@
 com\HackABoss\LereahSol_pruebatec2\logica\Controladora.class
 com\HackABoss\LereahSol_pruebatec2\logica\exceptions\IllegalOrphanException.class
-com\HackABoss\LereahSol_pruebatec2\servlets\SvTurnosFiltrados.class
 com\HackABoss\LereahSol_pruebatec2\logica\Turno.class
 com\HackABoss\LereahSol_pruebatec2\logica\exceptions\NonexistentEntityException.class
 com\HackABoss\LereahSol_pruebatec2\persistencia\CiudadanoJpaController.class
@@ -15,5 +14,6 @@ com\HackABoss\LereahSol_pruebatec2\JakartaRestConfiguration.class
 com\HackABoss\LereahSol_pruebatec2\servlets\SvTurno.class
 com\HackABoss\LereahSol_pruebatec2\servlets\SvElimTurno.class
 com\HackABoss\LereahSol_pruebatec2\resources\JakartaEE8Resource.class
+com\HackABoss\LereahSol_pruebatec2\logica\exceptions\DatosInvalidosException.class
 com\HackABoss\LereahSol_pruebatec2\logica\exceptions\PreexistingEntityException.class
 com\HackABoss\LereahSol_pruebatec2\persistencia\ControladoraPersistencia.class

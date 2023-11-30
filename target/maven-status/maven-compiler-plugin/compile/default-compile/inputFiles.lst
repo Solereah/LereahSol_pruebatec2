@@ -3,7 +3,7 @@ C:\Users\slere\Desktop\LereahSol_pruebatec2\src\main\java\com\HackABoss\LereahSo
 C:\Users\slere\Desktop\LereahSol_pruebatec2\src\main\java\com\HackABoss\LereahSol_pruebatec2\persistencia\exceptions\PreexistingEntityException.java
 C:\Users\slere\Desktop\LereahSol_pruebatec2\src\main\java\com\HackABoss\LereahSol_pruebatec2\logica\exceptions\PreexistingEntityException.java
 C:\Users\slere\Desktop\LereahSol_pruebatec2\src\main\java\com\HackABoss\LereahSol_pruebatec2\persistencia\exceptions\NonexistentEntityException.java
-C:\Users\slere\Desktop\LereahSol_pruebatec2\src\main\java\com\HackABoss\LereahSol_pruebatec2\servlets\SvTurnosFiltrados.java
+C:\Users\slere\Desktop\LereahSol_pruebatec2\src\main\java\com\HackABoss\LereahSol_pruebatec2\logica\exceptions\DatosInvalidosException.java
 C:\Users\slere\Desktop\LereahSol_pruebatec2\src\main\java\com\HackABoss\LereahSol_pruebatec2\persistencia\TurnoJpaController.java
 C:\Users\slere\Desktop\LereahSol_pruebatec2\src\main\java\com\HackABoss\LereahSol_pruebatec2\persistencia\CiudadanoJpaController.java
 C:\Users\slere\Desktop\LereahSol_pruebatec2\src\main\java\com\HackABoss\LereahSol_pruebatec2\persistencia\ControladoraPersistencia.java

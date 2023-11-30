@@ -1,7 +1,4 @@
 
-
-
-
 <!DOCTYPE html>
 <html lang="es">
     <%@include file="componentes/head.jsp"%>
