@@ -69,9 +69,9 @@
                   
                         <!-- Button trigger modal -->
                     <td>
-                        <form action="SvEditTurno" method="GET" class="d-inline">
+                        <form action="SvEditTurno" method="POST" class="d-inline">
                             <input type="hidden" name="idTurno" value="<%=turno.getIdTurno()%>">
-                            <button class="btn btn-warning btn-sm" type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop" >
+                            <button class="btn btn-warning btn-sm" type="submit" >
                                 <%=turno.getEstado()%> <i class="fa-solid fa-pencil"></i>
                             </button>
                         </form>

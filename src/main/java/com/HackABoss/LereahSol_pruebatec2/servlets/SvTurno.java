@@ -47,8 +47,7 @@ public class SvTurno extends HttpServlet {
               
             }
         }
-
-        //Con session
+        
         HttpSession miSession = request.getSession();
         miSession.setAttribute("listaTurnos", listaTurnos);
         response.sendRedirect("mostrarTurnos.jsp");
@@ -56,6 +55,7 @@ public class SvTurno extends HttpServlet {
     }
 
     @Override
+    @SuppressWarnings("null")
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         HttpSession miSession = request.getSession(false);
@@ -81,7 +81,6 @@ public class SvTurno extends HttpServlet {
 
                     response.sendRedirect("index.jsp");
                 } else {
-                    // Manejo si el ciudadano no está en la sesión
                     response.sendRedirect("error.jsp");
                 }
             }
@@ -89,8 +88,8 @@ public class SvTurno extends HttpServlet {
             System.out.println("Se ha producido un error en la creacion del turno" + e);
             response.sendRedirect("error.jsp");
         } finally {
-            // Limpieza de la sesión
-            miSession.invalidate();
+           
+            miSession.invalidate();  // Limpieza de la sesión
         }
 
     }

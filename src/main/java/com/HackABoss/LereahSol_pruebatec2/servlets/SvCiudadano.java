@@ -34,20 +34,29 @@ public class SvCiudadano extends HttpServlet {
         String dni = request.getParameter("inputDNI");
         String tel = request.getParameter("inputTel");
 
-        Ciudadano ciudadano = new Ciudadano();
-        ciudadano.setNombre(nombre);
-        ciudadano.setApellido(apellido);
-        ciudadano.setDni(dni);
-        ciudadano.setTelefono(tel);
+        int idCiudaExist = control.obtenerIdCiudadano(nombre, apellido, dni);
+        
+        if (idCiudaExist != 0) {
 
-        boolean ciudadanoExiste = control.ciudadanoExiste(nombre, apellido, dni);
+            Ciudadano ciudaExistente = control.traerCiudadano(idCiudaExist);
 
-        if (!ciudadanoExiste) {
-            control.crearCiudadano(ciudadano);
+            HttpSession miSession = request.getSession(true);
+            miSession.setAttribute("ciudadano", ciudaExistente);
+
+        } else {
+            Ciudadano nuevoCiuda = new Ciudadano();
+
+            nuevoCiuda.setNombre(nombre);
+            nuevoCiuda.setApellido(apellido);
+            nuevoCiuda.setDni(dni);
+            nuevoCiuda.setTelefono(tel);
+
+            control.crearCiudadano(nuevoCiuda);
+
+            HttpSession miSession = request.getSession(true);
+            miSession.setAttribute("ciudadano", nuevoCiuda);
+
         }
-
-        HttpSession miSession = request.getSession(true);
-        miSession.setAttribute("ciudadano", ciudadano);
 
         response.sendRedirect("altaTurno.jsp");
 

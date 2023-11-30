@@ -23,14 +23,21 @@ public class Controladora {
         return controlPersis.traerCiudadano(id);
     }
 
+    public int obtenerIdCiudadano(String nombre, String apellido, String dni) {
+        List<Ciudadano> ciudadanos = controlPersis.traerCiudadanos();
+
+        for (Ciudadano ciudadano : ciudadanos) {
+            if (ciudadano.getNombre().equalsIgnoreCase(nombre)
+                    && ciudadano.getApellido().equalsIgnoreCase(apellido)
+                    && ciudadano.getDni().equalsIgnoreCase(dni)) {
+                return ciudadano.getIdCiudadano(); 
+            }      
+    }
+        return 0;
+    
+    }
     public List<Ciudadano> traerCiudadanos() {
         return controlPersis.traerCiudadanos();
-    }
-
-    public boolean ciudadanoExiste(String nombre, String apellido, String dni) {
-        return controlPersis.traerCiudadanos().stream()
-                .anyMatch(ciudadano -> ciudadano.getNombre().equalsIgnoreCase(nombre) && ciudadano.getApellido().equalsIgnoreCase(apellido) && ciudadano.getDni().equalsIgnoreCase(dni));
-
     }
 
     //-----------------------TURNOS----------------------- 

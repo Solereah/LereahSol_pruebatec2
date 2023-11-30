@@ -40,7 +40,7 @@ public class SvElimTurno extends HttpServlet {
         HttpSession session = request.getSession();
         session.setAttribute("listaTurnos", turnosActualizados);
         
-        response.sendRedirect("SvTurno");
+        response.sendRedirect("mostrarTurnos.jsp");
         
        
     }
