@@ -38,15 +38,12 @@ public class SvEditTurno extends HttpServlet {
         Turno turnoEdit = control.traerTurno(idTurnoEdit);
         String estado = turnoEdit.getEstado();
 
-        System.out.println("Estado es: " + estado);
-
         if (estado != null && !estado.isEmpty()) {
             if (estado.equalsIgnoreCase("En Espera")) {
                 turnoEdit.setEstado("Atendido");
             } else {
                 turnoEdit.setEstado("En Espera");
             }
-
             control.editarTurno(turnoEdit);
         }
         List<Turno> estadosActualizados = control.traerTurnos();

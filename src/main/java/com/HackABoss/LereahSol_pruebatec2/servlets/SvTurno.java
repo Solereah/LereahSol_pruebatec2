@@ -83,12 +83,12 @@ public class SvTurno extends HttpServlet {
 
                     response.sendRedirect("index.jsp");
                 } else {
-                    response.sendRedirect("error.jsp");
+                    response.sendRedirect("404.jsp");
                 }
             }
         } catch (IOException e) {
             System.out.println("Se ha producido un error en la creacion del turno" + e);
-            response.sendRedirect("error.jsp");
+            response.sendRedirect("404.jsp");
         } finally {
             miSession.invalidate();// Limpiar sesión
         }

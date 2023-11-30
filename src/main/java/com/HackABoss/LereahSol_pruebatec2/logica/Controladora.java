@@ -1,5 +1,6 @@
 package com.HackABoss.LereahSol_pruebatec2.logica;
 
+import com.HackABoss.LereahSol_pruebatec2.logica.exceptions.DatosInvalidosException;
 import com.HackABoss.LereahSol_pruebatec2.persistencia.ControladoraPersistencia;
 import com.HackABoss.LereahSol_pruebatec2.servlets.SvTurno;
 import java.text.ParseException;
@@ -102,23 +103,31 @@ public class Controladora {
     public void ordernarTurnos(List<Turno> turnos) {
         Collections.sort(turnos, (turno1, turno2) -> Integer.compare(turno1.getIdTurno(), turno2.getIdTurno()));
     }
+    
+    //Validación de datos 
+    //Expresión regular que permite letras con tildes y la letra 'ñ'
 
-// Expresión regular que permite letras con tildes y la letra 'ñ'
-    public boolean validarNombApe(String texto) {
+    public void validarNombApe(String texto) throws DatosInvalidosException {
         String regex = "^[a-zA-ZáéíóúÁÉÍÓÚñÑ\\s]+$";
-        return texto.matches(regex);
+        if (!texto.matches(regex)) {
+            throw new DatosInvalidosException("El nombre o apellido contienen caracteres no válidos.");
+        }
     }
 
     // Expresión regular que permite un DNI de 8 dígitos
-    public boolean validarDNI(String dni) {
+    public void validarDNI(String dni) throws DatosInvalidosException {
         String regex = "^[0-9]{8}$";
-        return dni.matches(regex);
+        if (!dni.matches(regex)) {
+            throw new DatosInvalidosException("El DNI debe contener exactamente 8 dígitos numéricos.");
+        }
     }
 // Expresión regular que permite un número de teléfono de 9 dígitos
 
-    public boolean validarTelefono(String telefono) {
+    public void validarTelefono(String telefono) throws DatosInvalidosException {
         String regex = "^[0-9]{9}$";
-        return telefono.matches(regex);
+        if (!telefono.matches(regex)) {
+            throw new DatosInvalidosException("El número de teléfono debe contener exactamente 9 dígitos.");
+        }
     }
 
 }
