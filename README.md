@@ -2,8 +2,8 @@
 
 # CitaÁgil
 
-Sistema de Gestión de Turnos
-Este es un sistema de gestión de turnos que permite a los usuarios crear turnos, editar su estado de "En Espera" a "Atendido", y eliminar turnos. También cuenta con funciones de filtrado por fecha y estado de turno.
+### Sistema de Gestión de Turnos
+Este es un sistema que permite a los usuarios crear turnos, editar su estado de "En Espera" a "Atendido" y eliminar turnos. También cuenta con funciones de filtrado por fecha y estado del turno.
 
 ## Modelado de Clases
 
